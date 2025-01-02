@@ -1,0 +1,67 @@
+<!--
+Example:
+	My logo.png is 1462 x 655 pixels.
+	Since this is too large for my needs, I manually scale it down.
+	
+	Original image dimenstions: 1462 x 655
+	Scaled down: 670 x 300
+	
+	In the lines below, you will find these two values.
+	Change them with your own image dimensions.
+	
+	To get more spacing between the logos, you need to open the file in a graphics editor and add some padding around the logo.
+	Save the new file and change the dimensions in the lines below.
+-->
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Scrolling background for Streamlabs OBS / OBS</title>
+		<meta name="description" content="A scrolling background animation for use in Streamlabs OBS or OBS">
+		<meta name="author" content="PlokGaming">
+		<style>
+			body {
+				background-color: #ccc;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			
+			#bglayer {
+				height: 100vh;
+				width: 100vw;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			#bglayer_anim {
+				opacity: .5;							/* Change opacity to make logo more opaque or more transparent */
+				width: calc(100vw + 600px);
+				height: calc(100vh + 600px);
+				background-image: url('https://cdn.discordapp.com/attachments/1322785310429417523/1322971208257503314/colorful-seamless-pattern-fun-colorful-line-doodle-shape-background_526236-3.png?ex=67776db3&is=67761c33&hm=8089da9d5a27a08477ca97bd7d4e0bc0a713adb9cbd6809e1ad56c39c06d1bb6&');
+				background-size: 600px 600px;
+				animation-name: imgscroll;
+				animation-duration: 20s;					/* Higher value = slower animation, lower value = quicker animation */
+				animation-iteration-count: infinite;
+				position: absolute;
+				animation-timing-function: linear;
+				filter: grayscale(100%);				/* Remove this line if you want to keep the logo colors */
+			}
+			
+			@keyframes imgscroll {
+				from {									/* Switch the from and to values to invert the movement */
+					left: -600px; 
+					top: -600px; 
+				}			
+				to {
+					left: 0px; 
+					top: 0px; 
+				}		
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bglayer">
+			<div id="bglayer_anim">anim</div>
+		</div>
+	</body>
+</html>
